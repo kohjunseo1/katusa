@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>US Army Unit </title>
+    <style>
+        body {
+            background-image: url(https://news.kbs.co.kr/data/news/2017/04/11/3461670_Gx9.png);
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+    <link rel="stylesheet"
+        href="https://s3.ap-northeast-2.amazonaws.com/materials.spartacodingclub.kr/easygpt/default.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
+    <style>
+        .unit-img-top {
+            width: 100%;
+            max-height: 200px;
+            /* 이미지의 최대 높이를 설정하세요. */
+            height: auto;
+            object-fit: cover;
+        }
+
+
+        .unit-subtitle {
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="hero bg-dark text-center py-5">
+        <h1 class="text-white">🇰🇷ROK-US🇺🇸</h1>
+        <h2 class="text-white">카투사 출신이 말해주는 카투사들이 복무하는 미군부대</h2>
+        <h1></h1>
+    </div>
+    <!-- 부대별 섹션 시작 -->
+    <div class="container mt-4">
+        <div class="row">
+            <!-- 첫 번째 부대 -->
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="8A.jpeg" class="unit-img-top" alt="8A 이미지" />
+                    <div class="card-body">
+                        <h5 class="card-title"><a href="https://namu.wiki/w/제8군" target="_blank">미8군</a></h5>
+                        <h6 class="unit-subtitle mb-2 ">Unit 1</h6>
+                        <p class="unit-text">방사능 마크가 대표적인 미8군!</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 두 번째 부대 -->
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="usfk.jpeg" class="unit-img-top" alt="USFK 이미지" />
+                    <div class="card-body">
+                        <h5 class="card-title"><a href="https://namu.wiki/w/주한미군" target="_blank">주한미군</a></h5>
+                        <h6 class="unit-subtitle mb-2 ">Unit 2</h6>
+                        <p class="unit-text">간지의 상징 주한미군</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 세 번째 부대 -->
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="2ID.jpeg" class="unit-img-top" alt="2ID 이미지" />
+                    <div class="card-body">
+                        <h5 class="card-title"><a href="https://namu.wiki/w/제2보병사단(미국)" target="_blank">제 2 보병사단</a>
+                        </h5>
+                        <h6 class="unit-subtitle mb-2 ">Unit 3</h6>
+                        <p class="unit-text">미군이 하는 모든 훈련을 같이 해내는 최고의 전사부대</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 네 번째 부대 -->
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="65th.jpeg" class="unit-img-top" alt="65th medical 이미지" />
+                    <div class="card-body">
+                        <h5 class="card-title"><a href="https://ko.wikipedia.org/wiki/제65의무여단" target="_blank">제
+                                65의무여단</a></h5>
+                        <h6 class="unit-subtitle mb-2 ">Unit 4</h6>
+                        <p class="unit-text">치료는 메딕한테 맡기라고!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 문의하기 입력창 -->
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-12">
+                <h3>더 알고싶은 미군부대가 있다? 밑에 작성해주세요!</h3>
+                <div id="inputSection">
+                    <button class="btn btn-primary" onclick="toggleInput()"> press the button. </button>
+                    <div id="textInput" style="display: none;">
+                        <input type="text" id="userInput" class="form-control mt-2"
+                            placeholder="please write down your interest unit">
+                        <button class="btn btn-primary mt-2" onclick="addUserInput()"> Submit </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-md-12">
+                <h3>Unit List</h3>
+                <ul id="userInputList"></ul>
+            </div>
+        </div>
+    </div>
+    <script>
+        function toggleInput() {
+            var textInput = document.getElementById("textInput");
+            textInput.style.display = textInput.style.display === "none" ? "block" : "none";
+        }
+
+        function addUserInput() {
+            var userInput = document.getElementById("userInput").value;
+            var userInputList = document.getElementById("userInputList");
+
+            if (userInput !== "") {
+                var listItem = document.createElement("li");
+                listItem.appendChild(document.createTextNode(userInput));
+                userInputList.appendChild(listItem);
+
+
+                document.getElementById("userInput").value = "";
+
+                document.getElementById("textInput").style.display = "none";
+            }
+        }
+    </script>
+</body>
+
+</html>
